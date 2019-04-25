@@ -4,10 +4,11 @@ from Minliner import inline
 @inline
 def u(e): #inline
     a = e * 2
-    return a
+    return a 
 
 def a_dje(b:int):
-    p = []
+    p, e = [], 1
+    r = u(4)
     for i in range(b):
         p.append(i*2)
             
@@ -28,6 +29,9 @@ def pp(e):
 import time
 def bench(closure, times:int):
     t = time.time()
+    p = 0
+    l = 1
+    o = 0
     for _ in range(times):
         closure()
     return (time.time() - t) / times

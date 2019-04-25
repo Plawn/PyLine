@@ -1,3 +1,6 @@
+import re
+
+
 def find_between(s: str, first: str, last: str):
     """Gives you the first thing between the two delimiters
     """
@@ -11,6 +14,20 @@ def find_between(s: str, first: str, last: str):
 
 def remove_indent(string):
     i = 0
-    while string[i] == ' ' or string[i] == '\t':
+    while i < len(string) and string[i] == ' ' or string[i] == '\t':
         i += 1
     return string[i:]
+
+
+reg_function = re.compile(r"([^,]+\(.+?\))")
+
+
+def is_function_call(string):
+    return len(reg_function.findall(string)) > 0, string.split('(')[0]
+
+
+def infere_type(var):
+    for assignment in var.assignment:
+        pass
+    return 'int'
+
